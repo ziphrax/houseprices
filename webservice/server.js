@@ -12,8 +12,9 @@ app.use(morgan('combined', {stream: accessLogStream}))
 
 var defaultRoute = require('./routes/default');
 var terracedRoute = require('./routes/terraced');
+var regionsRoute = require('./routes/regions');
 
-
+app.use('/regions', regionsRoute);
 app.use('/terraced', terracedRoute);
 app.use('/', defaultRoute);
 

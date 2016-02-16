@@ -11,8 +11,7 @@ router.get('/',function(req,res){
     }
   });
 })
-  .get('/:region',function(req,res){
-    console.log(req.params.region);
+.get('/:region',function(req,res){
   Terraced.find({}).select('_id Year Quater Period ' + req.params.region.toUpperCase()).exec(function(err,docs){
     if(err){
       res.status(500).json({status:500,message: err.message, url: '/terraced/' + req.params.region.toUpperCase()});
