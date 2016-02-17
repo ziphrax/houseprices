@@ -3,7 +3,8 @@ var express = require('express'),
     port = 3000,
     fs = require('fs'),
     mongoose = require('mongoose'),
-    morgan = require('morgan');
+    morgan = require('morgan'),
+    path = require('path');
 
 mongoose.connect('mongodb://localhost:27017/houseprices');
 
@@ -17,6 +18,8 @@ var regionsRoute = require('./routes/regions');
 app.use('/regions', regionsRoute);
 app.use('/terraced', terracedRoute);
 app.use('/', defaultRoute);
+app.use('/assets',express.static('client/assets'));
+app.use('/bower_components',express.static('client/bower_components'));
 
 app.listen(port,function(){
   console.log('App listening on port: %s',port);

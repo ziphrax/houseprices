@@ -12,13 +12,17 @@ router.get('/',function(req,res){
   });
 })
 .get('/:region',function(req,res){
-  Terraced.find({}).select('_id Year Quater Period ' + req.params.region.toUpperCase()).exec(function(err,docs){
-    if(err){
-      res.status(500).json({status:500,message: err.message, url: '/terraced/' + req.params.region.toUpperCase()});
-    } else {
-      res.json({status:200,message: 'ok', data: docs, url: '/terraced/' + req.params.region.toUpperCase()});
-    }
-  });
-});
+    Terraced
+        .find({})
+        .sort('Year Quater')
+        .select('_id Year Quater Period ' + req.params.region.toUpperCase())
+        .exec(function(err,docs){
+            if(err){
+              res.status(500).json({status:500,message: err.message, url: '/terraced/' + req.params.region.toUpperCase()});
+            } else {
+              res.json({status:200,message: 'ok', data: docs, url: '/terraced/' + req.params.region.toUpperCase()});
+            }
+        });
+    });
 
 module.exports = router;

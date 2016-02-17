@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>House Prices - Data Experiment</title>
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+    </head>
+    <body>
+
+        <div class="container">
+            <form name="search" class="form-horizontal">
+                <h2>Search</h2>
+                <div class="form-group">
+                    <label for="region" class="col-xs-12 col-sm-2 control-label">Region</label>
+                    <div class="col-xs-12 col-sm-10">
+                        <select name="region" class="form-control"><option value="">- loading -</option></select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Price Over Time</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div style="height:400px;overflow:auto;">
+                        <table class="table table-bordered table-striped" name="houseprices">
+                            <thead>
+                                <tr>
+                                    <th class="col-xs-2">Year</th>
+                                    <th class="col-xs-2">Quater</th>
+                                    <th class="col-xs-3">Region</th>
+                                    <th class="col-xs-4">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div style="height:400px;width:100%;">
+
+                            <canvas id="priceChart"></canvas>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/js/libs/ChartNew.js"></script>
+        <script type="text/javascript" src="/assets/js/libs/accounting.min.js"></script>
+        <script type="text/javascript" src="/assets/js/app.js"></script>
+    </body>
+</html>
